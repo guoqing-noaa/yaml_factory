@@ -73,6 +73,10 @@
        obs pre filters:
        # Step 0-A: Create Diagnostic Flags
        - filter: Create Diagnostic Flags
+         nametag:
+           filter id: CreateDiagnosticFlags
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_n19_channels
@@ -83,6 +87,10 @@
        obs post filters:
        #Thinning
        - filter: Gaussian Thinning
+         nametag:
+           filter id: Thinning
+           logging: true
+           diagnostic flag: false
          #horizontal_mesh: 145
          horizontal_mesh: 60
          use_reduced_horizontal_grid: true
@@ -95,6 +103,10 @@
            - name: reject
        # Regional domain check to remove data outside of model domain
        - filter: Bounds Check
+         nametag:
+           filter id: OnlineRegionalDomainCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_n19_channels
@@ -105,6 +117,10 @@
            maxvalue: 0.5
         #Toss data if the hofx is missing or outside of range
        - filter: Domain Check
+         nametag:
+           filter id: HofXValidCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_n19_channels
@@ -118,6 +134,10 @@
          action:
            name: reject
        - filter: BlackList
+         nametag:
+           filter id: ObsErrorInit
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_n19_channels
@@ -148,6 +168,10 @@
                         0.400,  0.550,  0.800,  3.000, 18.000]
        #  CLW Retrieval Check
        - filter: Bounds Check
+         nametag:
+           filter id: CLWRetCheckObs
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: 1-6, 15
@@ -162,6 +186,10 @@
            name: reject
        #  CLW Retrieval Check
        - filter: Bounds Check
+         nametag:
+           filter id: CLWRetCheckBkg
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: 1-6, 15
@@ -176,6 +204,10 @@
            name: reject
        #  Hydrometeor Check (cloud/precipitation affected chanels)
        - filter: Bounds Check
+         nametag:
+           filter id: HydrometeorCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_n19_channels
@@ -219,6 +251,10 @@
            name: reject
        #  Topography check
        - filter: BlackList
+         nametag:
+           filter id: TopographyCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_n19_channels
@@ -232,6 +268,10 @@
                channels: *amsua_n19_channels
        #  Transmittnace Top Check
        - filter: BlackList
+         nametag:
+           filter id: TransmitTopCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_n19_channels
@@ -245,6 +285,10 @@
                channels: *amsua_n19_channels
        #  Surface Jacobian check
        - filter: BlackList
+         nametag:
+           filter id: SurfJacobianCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_n19_channels
@@ -260,6 +304,10 @@
                obserr_dtempf: [0.500, 2.000, 1.000, 2.000, 4.500]
        #  Situation dependent Check
        - filter: BlackList
+         nametag:
+           filter id: SituDependCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_n19_channels
@@ -339,6 +387,10 @@
                obserr_clearsky: *amsua_n19_error
        #  Gross check
        - filter: Background Check
+         nametag:
+           filter id: GrossCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_n19_channels
@@ -392,6 +444,10 @@
            name: reject
        #  Inter-channel check
        - filter: Bounds Check
+         nametag:
+           filter id: InterChannelCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_n19_channels
@@ -407,6 +463,10 @@
            name: reject
        #  Useflag check
        - filter: Bounds Check
+         nametag:
+           filter id: UseflagCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_n19_channels

@@ -86,6 +86,10 @@
        obs pre filters:
        # Step 0-A: Create Diagnostic Flags
        - filter: Create Diagnostic Flags
+         nametag:
+           filter id: CreateDiagnosticFlags
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *atms_n21_channels
@@ -119,6 +123,10 @@
        # Step 0-B: Calculate derived variables
        # Calculate CLW retrieved from observation
        - filter: Variable Assignment
+         nametag:
+           filter id: CLWRetFromObs
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: CLWRetFromObs@DerivedMetaData
            type: float
@@ -130,6 +138,10 @@
                clwret_types: [ObsValue]
        # Calculate CLW retrieved from observation
        - filter: Variable Assignment
+         nametag:
+           filter id: CLWRetFromObs
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: CLWRetFromBkg@DerivedMetaData
            type: float
@@ -142,12 +154,20 @@
 
        # Calculate symmetric retrieved CLW
        - filter: Variable Assignment
+         nametag:
+           filter id: CLWRetSymmetric
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: CLWRetSymmetric@DerivedMetaData
            type: float
            value: 1000.0
 
        - filter: Variable Assignment
+         nametag:
+           filter id: VarAssign
+           logging: true
+           diagnostic flag: false
          where:
          - variable:
              name: CLWRetFromObs@DerivedMetaData
@@ -171,6 +191,10 @@
 
        # Calculate scattering index from observation
        - filter: Variable Assignment
+         nametag:
+           filter id: SIRetFromObs
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: SIRetFromObs@DerivedMetaData
            type: float
@@ -184,6 +208,10 @@
 
        # Calculate CLW obs/bkg match index
        - filter: Variable Assignment
+         nametag:
+           filter id: CLWRetFromObs
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: CLWMatchIndex@DerivedMetaData
            channels: *atms_n21_channels
@@ -205,6 +233,10 @@
 
        # Calculate symmetric observation error
        - filter: Variable Assignment
+         nametag:
+           filter id: InitialObsError
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: InitialObsError@DerivedMetaData
            channels: *atms_n21_channels
@@ -239,6 +271,10 @@
 
        # Calculate Innovation@DerivedMetaData
        - filter: Variable Assignment
+         nametag:
+           filter id: Innovation
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: Innovation@DerivedMetaData
            channels: *atms_n21_channels
@@ -256,6 +292,10 @@
 
        # Toss the data if the hofx is missing or outside of range
        - filter: Domain Check
+         nametag:
+           filter id: HofXValidCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *atms_n21_channels
@@ -271,6 +311,10 @@
 
        # Regional Domain Check
        - filter: Bounds Check
+         nametag:
+           filter id: OnlineRegionalDomainCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *atms_n21_channels
@@ -282,6 +326,10 @@
 
        # Step 0-C: Assign Initial All-Sky Observation Error
        - filter: Perform Action
+         nametag:
+           filter id: ObsErrorInit
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *atms_n21_channels
@@ -293,6 +341,10 @@
 
        # Step 1: Remove Observations from the Edge of the Scan
        - filter: Domain Check
+         nametag:
+           filter id: ScanEdgeRemoval
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: 1-22
@@ -307,6 +359,10 @@
 
        # Step 2: data Thinning
        - filter: Gaussian Thinning
+         nametag:
+           filter id: Thinning
+           logging: true
+           diagnostic flag: false
          #horizontal_mesh: 145
          horizontal_mesh: 60
          use_reduced_horizontal_grid: true
@@ -320,6 +376,10 @@
 
        # Step 3A: CLW Retrieval Check (observation_based)
        - filter: Bounds Check
+         nametag:
+           filter id: CLWRetCheckObs
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: 1-7, 16-22
@@ -333,6 +393,10 @@
 
        # Step 3B: CLW Retrieval Check (background_based)
        - filter: Bounds Check
+         nametag:
+           filter id: CLWRetCheckBkg
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: 1-7, 16-22
@@ -346,6 +410,10 @@
 
        # Step 4: Window Channel Sanity Check
        - filter: Bounds Check
+         nametag:
+           filter id: WindowChannelExtremeResidual
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: 1-7, 16, 17-22
@@ -362,6 +430,10 @@
 
        # Step 5: Hydrometeor Check (cloud/precipitation affected chanels)
        - filter: Variable Assignment
+         nametag:
+           filter id: HydrometeorCheck
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: DerivedMetaData/HydrometeorCheckATMS
            channels: *atms_n21_channels
@@ -379,6 +451,10 @@
                  channels: *atms_n21_channels
 
        - filter: Bounds Check
+         nametag:
+           filter id: HydrometeorCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *atms_n21_channels
@@ -394,6 +470,10 @@
 
        # Step 6: Observation Error Inflation based on Topography Check
        - filter: Variable Assignment
+         nametag:
+           filter id: TopographyCheck
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: ObsErrorFactorTopo@DerivedMetaData
            channels: *atms_n21_channels
@@ -406,6 +486,10 @@
                channels: *atms_n21_channels
 
        - filter: Perform Action
+         nametag:
+           filter id: TopographyCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *atms_n21_channels
@@ -417,6 +501,10 @@
 
        # Step 7: Obs Error Inflation based on TOA Transmittancec Check
        - filter: Variable Assignment
+         nametag:
+           filter id: ObsErrorFactorTransmitTop
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: ObsErrorFactorTransmitTop@DerivedMetaData
            channels: *atms_n21_channels
@@ -428,6 +516,10 @@
                channels: *atms_n21_channels
 
        - filter: Perform Action
+         nametag:
+           filter id: TransmitTopCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *atms_n21_channels
@@ -439,6 +531,10 @@
 
        # Step 8: Observation Error Inflation based on Surface Jacobian Check
        - filter: Variable Assignment
+         nametag:
+           filter id: SurfJacobianCheck
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: ObsErrorFactorSurfJacobian@DerivedMetaData
            channels: *atms_n21_channels
@@ -453,6 +549,10 @@
                obserr_dtempf: [0.500, 2.000, 1.000, 2.000, 4.500]
 
        - filter: Perform Action
+         nametag:
+           filter id: SurfJacobianCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *atms_n21_channels
@@ -464,6 +564,10 @@
 
        # Step 9: Situation Dependent Check
        - filter: Variable Assignment
+         nametag:
+           filter id: SituDependCheck
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: ObsErrorFactorSituDepend@DerivedMetaData
            channels: *atms_n21_channels
@@ -489,6 +593,10 @@
                obserr_clearsky: *atms_n21_error
 
        - filter: Perform Action
+         nametag:
+           filter id: SituDependCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *atms_n21_channels
@@ -501,6 +609,10 @@
        # Step 10: Gross check
        # Remove data if abs(Obs-HofX) > absolute threhold
        - filter: Variable Assignment
+         nametag:
+           filter id: GrossCheck
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: ObsErrorFactorLat@DerivedMetaData
            type: float
@@ -510,6 +622,10 @@
                latitude_parameters: [25.0, 0.25, 0.04, 3.0]
 
        - filter: Variable Assignment
+         nametag:
+           filter id: VarAssign
+           logging: true
+           diagnostic flag: false
          assignments:
          - name: ObsErrorBound@DerivedMetaData
            channels: *atms_n21_channels
@@ -537,6 +653,10 @@
                obserr_bound_max: *atms_n21_obserr_bound_max
 
        - filter: Background Check
+         nametag:
+           filter id: GrossErrorCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *atms_n21_channels
@@ -551,6 +671,10 @@
 
        # Step 11: Inter-Channel Check
        - filter: Bounds Check
+         nametag:
+           filter id: InterChannelCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *atms_n21_channels
@@ -571,6 +695,10 @@
 
        # Step 12: Useflag Check
        - filter: Bounds Check
+         nametag:
+           filter id: UseflagCheck
+           logging: true
+           diagnostic flag: false
          filter variables:
          - name: brightnessTemperature
            channels: *atms_n21_channels

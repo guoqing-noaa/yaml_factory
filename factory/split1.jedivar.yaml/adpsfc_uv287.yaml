@@ -52,6 +52,10 @@
          # ------------------
          # Reject all obs with QualityMarker > 3
          - filter: RejectList
+           nametag:
+             filter id: QcMarkerReject
+             logging: true
+             diagnostic flag: false
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -65,6 +69,10 @@
 
          # Time window filter
          - filter: Domain Check
+           nametag:
+             filter id: TimeWindowCheck
+             logging: true
+             diagnostic flag: false
            where:
              - variable:
                  name: MetaData/timeOffset # units: s
@@ -75,6 +83,10 @@
 
          # Duplicate Check
          - filter: Temporal Thinning
+           nametag:
+             filter id: ClosetObs
+             logging: true
+             diagnostic flag: false
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -88,6 +100,10 @@
 
          # Online domain check
          - filter: Bounds Check
+           nametag:
+             filter id: OnlineRegionalDomainCheck
+             logging: true
+             diagnostic flag: false
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -98,6 +114,10 @@
 
          # Initial error assignment
          - filter: Perform Action
+           nametag:
+             filter id: ObsErrorInit
+             logging: true
+             diagnostic flag: false
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -116,6 +136,10 @@
 
 #         # Error inflation (windEastward) based on pressure check (setupw.f90)
 #         - filter: Perform Action
+#           nametag:
+#             filter id: ObsErrorFactorPressureCheckU
+#             logging: true
+#             diagnostic flag: false
 #           filter variables:
 #           - name: windEastward
 #           where:
@@ -134,6 +158,10 @@
 
 #         # Error inflation (windNorthward) based on pressure check (setupw.f90)
 #         - filter: Perform Action
+#           nametag:
+#             filter id: ObsErrorFactorPressureCheckV
+#             logging: true
+#             diagnostic flag: false
 #           filter variables:
 #           - name: windNorthward
 #           where:
@@ -152,6 +180,10 @@
 
 #         # Error inflation (windEastward) based on errormod (qcmod.f90)
 #         - filter: Perform Action
+#           nametag:
+#             filter id: ObsErrorFactorPressureCheckU
+#             logging: true
+#             diagnostic flag: false
 #           filter variables:
 #           - name: windEastward
 #           where:
@@ -170,6 +202,10 @@
 
 #         # Error inflation (windNorthward) based on errormod (qcmod.f90)
 #         - filter: Perform Action
+#           nametag:
+#             filter id: ObsErrorFactorPressureCheckV
+#             logging: true
+#             diagnostic flag: false
 #           filter variables:
 #           - name: windNorthward
 #           where:
@@ -188,6 +224,10 @@
 
          # Error inflation when QualityMarker == 3 (read_prepbufr.f90)
          - filter: Perform Action
+           nametag:
+             filter id: ObsErrorFactorPressureCheckU
+             logging: true
+             diagnostic flag: false
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -200,6 +240,10 @@
 
          # Error inflation when observation pressure < 50 hPa (read_prepbufr.f90)
          - filter: Perform Action
+           nametag:
+             filter id: ObsErrorFactorHighAltitude
+             logging: true
+             diagnostic flag: false
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -212,6 +256,10 @@
 
          # Bounds Check (ObsError)
          - filter: Bounds Check
+           nametag:
+             filter id: ObsErrorBoundsCheck
+             logging: true
+             diagnostic flag: false
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -224,6 +272,10 @@
 
          # Bounds Check (ObsValue)
          - filter: Bounds Check
+           nametag:
+             filter id: ObsValueBoundsCheck
+             logging: true
+             diagnostic flag: false
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -234,6 +286,10 @@
 
          # Gross Error Check (windEastward)
          - filter: Background Check
+           nametag:
+             filter id: GrossErrorCheckU
+             logging: true
+             diagnostic flag: false
            apply at iterations: 0,1
            filter variables:
            - name: windEastward
@@ -254,6 +310,10 @@
 
          # Gross Error Check (windNorthward)
          - filter: Background Check
+           nametag:
+             filter id: GrossErrorCheckV
+             logging: true
+             diagnostic flag: false
            apply at iterations: 0,1
            filter variables:
            - name: windNorthward
@@ -274,6 +334,10 @@
 
          # Gross Error Check (windEastward): cgross*0.7 if QualityMarker=3
          - filter: Background Check
+           nametag:
+             filter id: GrossErrorCheckQc3U
+             logging: true
+             diagnostic flag: false
            apply at iterations: 0,1
            filter variables:
            - name: windEastward
@@ -294,6 +358,10 @@
 
          # Gross Error Check (windNorthward): cgross*0.7 if QualityMarker=3
          - filter: Background Check
+           nametag:
+             filter id: GrossErrorCheckQc3V
+             logging: true
+             diagnostic flag: false
            apply at iterations: 0,1
            filter variables:
            - name: windNorthward

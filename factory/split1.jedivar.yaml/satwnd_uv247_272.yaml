@@ -42,6 +42,10 @@
          # ------------------
          # Accept, reject, or passivate (monitor)
          - filter: Perform Action
+           nametag:
+             filter id: IuseCheck
+             logging: true
+             diagnostic flag: false
            udescriptor: "iuse_check"
            filter variables:
            - name: windEastward
@@ -56,6 +60,10 @@
 
          # Reject all obs not 247
          - filter: Perform Action
+           nametag:
+             filter id: ObsTypeCheck
+             logging: true
+             diagnostic flag: false
            udescriptor: "obs_type_check"
            filter variables:
            - name: windEastward
@@ -70,6 +78,10 @@
 
          # Time window filter
          - filter: Bounds Check
+           nametag:
+             filter id: TimeWindowCheck
+             logging: true
+             diagnostic flag: false
            udescriptor: "time_window_check"
            filter variables:
            - name: windEastward
@@ -88,6 +100,10 @@
 
          # Duplicate Check
          - filter: Temporal Thinning
+           nametag:
+             filter id: ClosetObs
+             logging: true
+             diagnostic flag: false
            udescriptor: "duplicate_check"
            filter variables:
            - name: windEastward
@@ -107,6 +123,10 @@
 
          # Online domain check
          - filter: Bounds Check
+           nametag:
+             filter id: OnlineRegionalDomainCheck
+             logging: true
+             diagnostic flag: false
            udescriptor: "online_domain_check"
            filter variables:
            - name: windEastward
@@ -118,6 +138,10 @@
 
          # Initial error assignment
          - filter: Perform Action
+           nametag:
+             filter id: ObsErrorInit
+             logging: true
+             diagnostic flag: false
            udescriptor: "initial_error_assignment"
            filter variables:
            - name: windEastward
@@ -139,6 +163,10 @@
 
          # Error inflation (windEastward) based on pressure check (setupw.f90)
          - filter: Perform Action
+           nametag:
+             filter id: ObsErrorFactorPressureCheckU
+             logging: true
+             diagnostic flag: false
            udescriptor: "error_inflation_pressure_check"
            filter variables:
            - name: windEastward
@@ -157,6 +185,10 @@
 
          # Error inflation (windNorthward) based on pressure check (setupw.f90)
          - filter: Perform Action
+           nametag:
+             filter id: ObsErrorFactorPressureCheckV
+             logging: true
+             diagnostic flag: false
            udescriptor: "error_inflation_pressure_check"
            filter variables:
            - name: windNorthward
@@ -175,6 +207,10 @@
 
          # Bounds Check (ObsValue)
          - filter: Bounds Check
+           nametag:
+             filter id: ObsValueBoundsCheck
+             logging: true
+             diagnostic flag: false
            udescriptor: "bounds_check_ObsValue"
            filter variables:
            - name: windEastward
@@ -191,6 +227,10 @@
 
          # Reject obs with qiWithoutForecast < 90. OR > 100.
          - filter: Bounds Check
+           nametag:
+             filter id: QIFNCheck
+             logging: true
+             diagnostic flag: false
            udescriptor: "bounds_check_qifn"
            filter variables:
            - name: windEastward
@@ -209,6 +249,10 @@
 
          # Reject obs with satellite zenith angle > 68
          - filter: Bounds Check
+           nametag:
+             filter id: SatZenithAngleCheck
+             logging: true
+             diagnostic flag: false
            udescriptor: "bounds_check_satellite_zenith_angle"
            filter variables:
            - name: windEastward
@@ -226,6 +270,10 @@
 
          # Reject obs with pressure < 150 mb
          - filter: Bounds Check
+           nametag:
+             filter id: PressureMinCheck
+             logging: true
+             diagnostic flag: false
            udescriptor: "bounds_check_pressure"
            filter variables:
            - name: windEastward
@@ -244,6 +292,10 @@
 
          # Reject obs over land (isli=1) where pressure > 850 mb
          - filter: Perform Action
+           nametag:
+             filter id: PressureOverLandCheck
+             logging: true
+             diagnostic flag: false
            udescriptor: "bounds_check_pressure_over_land"
            filter variables:
            - name: windEastward
@@ -262,6 +314,10 @@
 
          # Low wind speed check
          - filter: Perform Action
+           nametag:
+             filter id: LowWindSpeedCheck
+             logging: true
+             diagnostic flag: false
            udescriptor: "reject_low_speed_amv"
            filter variables:
            - name: windEastward
@@ -278,6 +334,10 @@
 
          # AMV expected error norm check
          - filter: Perform Action
+           nametag:
+             filter id: AMVExpErrNormCheck
+             logging: true
+             diagnostic flag: false
            udescriptor: "amv_experr_norm_check"
            filter variables:
            - name: windEastward
@@ -296,6 +356,10 @@
 
          # Halve the ob error (based on read_satwnd.f90)
          - filter: Perform Action
+           nametag:
+             filter id: ObsErrorHalve
+             logging: true
+             diagnostic flag: false
            udescriptor: "ob_error_inflation"
            filter variables:
            - name: windEastward
@@ -311,6 +375,10 @@
 
          # Reject when pressure is more than 50 mb above tropopause
          - filter: Difference Check
+           nametag:
+             filter id: TropopausePressureCheck
+             logging: true
+             diagnostic flag: false
            udescriptor: "difference_check_tropopause_pressure"
            filter variables:
            - name: windEastward
@@ -328,6 +396,10 @@
 
          # Reject obs within 110 mb of surface pressure over non-water surface
          - filter: Difference Check
+           nametag:
+             filter id: DifferenceCheckSurfacePressure
+             logging: true
+             diagnostic flag: false
            udescriptor: "difference_check_surface_pressure"
            filter variables:
            - name: windEastward
@@ -349,6 +421,10 @@
 
          # Reject when difference of wind direction between obs and background is more than 50 degrees
          - filter: Bounds Check
+           nametag:
+             filter id: WindDirectionCheck
+             logging: true
+             diagnostic flag: false
            udescriptor: "wind_direction_check"
            filter variables:
            - name: windEastward
@@ -366,6 +442,10 @@
 
          # Gross Error Check (windEastward)
          - filter: Background Check
+           nametag:
+             filter id: GrossErrorCheckU
+             logging: true
+             diagnostic flag: false
            udescriptor: "gross_error_check"
            apply at iterations: 0,1
            filter variables:
@@ -384,6 +464,10 @@
 
          # Gross Error Check (windNorthward)
          - filter: Background Check
+           nametag:
+             filter id: GrossErrorCheckV
+             logging: true
+             diagnostic flag: false
            udescriptor: "gross_error_check"
            apply at iterations: 0,1
            filter variables:
