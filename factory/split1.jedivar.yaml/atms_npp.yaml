@@ -89,7 +89,7 @@
        - filter: Create Diagnostic Flags
          identifier:
            name: CreateDiagnosticFlags
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -126,7 +126,7 @@
        - filter: Variable Assignment
          identifier:
            name: CLWRetFromObs
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: CLWRetFromObs@DerivedMetaData
@@ -141,7 +141,7 @@
        - filter: Variable Assignment
          identifier:
            name: CLWRetFromObs
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: CLWRetFromBkg@DerivedMetaData
@@ -157,7 +157,7 @@
        - filter: Variable Assignment
          identifier:
            name: CLWRetSymmetric
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: CLWRetSymmetric@DerivedMetaData
@@ -167,7 +167,7 @@
        - filter: Variable Assignment
          identifier:
            name: VarAssign
-           logging: true
+           logging: false
            diagnostic flag new: false
          where:
          - variable:
@@ -194,7 +194,7 @@
        - filter: Variable Assignment
          identifier:
            name: SIRetFromObs
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: SIRetFromObs@DerivedMetaData
@@ -211,7 +211,7 @@
        - filter: Variable Assignment
          identifier:
            name: CLWRetFromObs
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: CLWMatchIndex@DerivedMetaData
@@ -236,7 +236,7 @@
        - filter: Variable Assignment
          identifier:
            name: InitialObsError
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: InitialObsError@DerivedMetaData
@@ -274,7 +274,7 @@
        - filter: Variable Assignment
          identifier:
            name: Innovation
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: Innovation@DerivedMetaData
@@ -295,7 +295,7 @@
        - filter: Domain Check
          identifier:
            name: HofXValidCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -314,7 +314,7 @@
        - filter: Bounds Check
          identifier:
            name: OnlineRegionalDomainCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -329,7 +329,7 @@
        - filter: Perform Action
          identifier:
            name: ObsErrorInit
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -344,7 +344,7 @@
        - filter: Domain Check
          identifier:
            name: ScanEdgeRemoval
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -362,7 +362,7 @@
        - filter: Gaussian Thinning
          identifier:
            name: Thinning
-           logging: true
+           logging: false
            diagnostic flag new: false
          #horizontal_mesh: 145
          horizontal_mesh: 60
@@ -379,7 +379,7 @@
        - filter: Bounds Check
          identifier:
            name: CLWRetCheckObs
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -396,7 +396,7 @@
        - filter: Bounds Check
          identifier:
            name: CLWRetCheckBkg
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -413,7 +413,7 @@
        - filter: Bounds Check
          identifier:
            name: WindowChannelExtremeResidual
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -433,7 +433,7 @@
        - filter: Variable Assignment
          identifier:
            name: HydrometeorCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: DerivedMetaData/HydrometeorCheckATMS
@@ -454,7 +454,7 @@
        - filter: Bounds Check
          identifier:
            name: HydrometeorCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -473,7 +473,7 @@
        - filter: Variable Assignment
          identifier:
            name: TopographyCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: ObsErrorFactorTopo@DerivedMetaData
@@ -489,7 +489,7 @@
        - filter: Perform Action
          identifier:
            name: TopographyCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -504,7 +504,7 @@
        - filter: Variable Assignment
          identifier:
            name: ObsErrorFactorTransmitTop
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: ObsErrorFactorTransmitTop@DerivedMetaData
@@ -519,7 +519,7 @@
        - filter: Perform Action
          identifier:
            name: TransmitTopCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -534,7 +534,7 @@
        - filter: Variable Assignment
          identifier:
            name: SurfJacobianCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: ObsErrorFactorSurfJacobian@DerivedMetaData
@@ -552,7 +552,7 @@
        - filter: Perform Action
          identifier:
            name: SurfJacobianCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -567,7 +567,7 @@
        - filter: Variable Assignment
          identifier:
            name: SituDependCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: ObsErrorFactorSituDepend@DerivedMetaData
@@ -596,7 +596,7 @@
        - filter: Perform Action
          identifier:
            name: SituDependCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -612,7 +612,7 @@
        - filter: Variable Assignment
          identifier:
            name: GrossCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: ObsErrorFactorLat@DerivedMetaData
@@ -625,7 +625,7 @@
        - filter: Variable Assignment
          identifier:
            name: VarAssign
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: ObsErrorBound@DerivedMetaData
@@ -656,7 +656,7 @@
        - filter: Background Check
          identifier:
            name: GrossErrorCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -674,7 +674,7 @@
        - filter: Bounds Check
          identifier:
            name: InterChannelCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -697,7 +697,7 @@
        - filter: Bounds Check
          identifier:
            name: UseflagCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature

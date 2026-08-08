@@ -92,7 +92,7 @@
        - filter: Create Diagnostic Flags
          identifier:
            name: CreateDiagnosticFlags
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -147,7 +147,7 @@
        - filter: Bounds Check
          identifier:
            name: ZenithAngleCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -169,7 +169,7 @@
        - filter: Domain Check
          identifier:
            name: CloudFractionCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -193,7 +193,7 @@
        - filter: Bounds Check
          identifier:
            name: ClearSkyStdCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -217,7 +217,7 @@
        - filter: Bounds Check
          identifier:
            name: BTrangeCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -237,7 +237,7 @@
        - filter: Variable Assignment
          identifier:
            name: ClearSkyStdCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: DerivedMetaData/thinning_priority
@@ -259,7 +259,7 @@
        - filter: Gaussian Thinning
          identifier:
            name: Thinning
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -296,7 +296,7 @@
        - filter: Perform Action
          identifier:
            name: ObsErrorInit
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -316,7 +316,7 @@
        - filter: Variable Assignment
          identifier:
            name: SurfaceFlag
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: DerivedMetaData/surfaceFlag
@@ -354,7 +354,7 @@
        - filter: Variable Assignment
          identifier:
            name: VarAssign
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: DerivedMetaData/surfaceParam
@@ -397,7 +397,7 @@
        - filter: Bounds Check
          identifier:
            name: OnlineRegionalDomainCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -419,7 +419,7 @@
        - filter: Domain Check
          identifier:
            name: HofXValidCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -441,7 +441,7 @@
        - filter: RejectList
          identifier:
            name: SurfaceCheckLand
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -457,7 +457,7 @@
        - filter: RejectList
          identifier:
            name: SurfaceCheckSnow
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -473,7 +473,7 @@
        - filter: RejectList
          identifier:
            name: SurfaceCheckIce
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -489,7 +489,7 @@
        - filter: RejectList
          identifier:
            name: SurfaceCheckMixed
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -520,7 +520,7 @@
        - filter: Perform Action
          identifier:
            name: TransmitTopCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -539,7 +539,7 @@
        - filter: Bounds Check
          identifier:
            name: CloudDetect
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -567,7 +567,7 @@
        - filter: Domain Check
          identifier:
            name: ClearSkyStdCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -590,7 +590,7 @@
        - filter: Perform Action
          identifier:
            name: ObsErrorInflationStd1
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -609,7 +609,7 @@
        - filter: Perform Action
          identifier:
            name: ObsErrorInflationStd2
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -629,7 +629,7 @@
        - filter: Perform Action
          identifier:
            name: ObsErrorInflationStd3
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -649,7 +649,7 @@
        - filter: Perform Action
          identifier:
            name: ObsErrorInflationStd4
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -673,7 +673,7 @@
        - filter: Bounds Check
          identifier:
            name: NearSSTRetCheckIR
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -702,7 +702,7 @@
        - filter: Perform Action
          identifier:
            name: SurfJacobianCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -726,7 +726,7 @@
        - filter: Domain Check
          identifier:
            name: CloudFractionCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -748,7 +748,7 @@
        - filter: Variable Assignment
          identifier:
            name: SplitWindowCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          assignments:
          - name: DerivedMetaData/OmFNBC
@@ -779,7 +779,7 @@
        - filter: Bounds Check
          identifier:
            name: SplitWindowCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -800,7 +800,7 @@
        - filter: Background Check
          identifier:
            name: GrossCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -835,7 +835,7 @@
        - filter: Bounds Check
          identifier:
            name: UseflagCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature

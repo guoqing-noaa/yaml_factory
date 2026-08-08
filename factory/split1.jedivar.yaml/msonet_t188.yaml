@@ -1,7 +1,7 @@
 #        - filter: RejectList
 #          identifier:
 #            name: RejectProductName
-#            logging: true
+#            logging: false
 #            diagnostic flag new: false
 #          where:
 #          - variable: MetaData/productName
@@ -79,7 +79,7 @@
          - filter: RejectList
            identifier:
              name: QcMarkerReject
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: airTemperature
@@ -95,7 +95,7 @@
          - filter: Domain Check
            identifier:
              name: TimeWindowCheck
-             logging: true
+             logging: false
              diagnostic flag new: false
            where:
              - variable:
@@ -109,7 +109,7 @@
 #         - filter: Temporal Thinning
 #           identifier:
 #             name: ClosetObs
-#             logging: true
+#             logging: false
 #             diagnostic flag new: false
 #           filter variables:
 #           - name: airTemperature
@@ -125,7 +125,7 @@
          - filter: Bounds Check
            identifier:
              name: OnlineRegionalDomainCheck
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: airTemperature
@@ -138,7 +138,7 @@
          - filter: Perform Action
            identifier:
              name: ObsErrorInit
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: airTemperature
@@ -159,7 +159,7 @@
          - filter: Perform Action
            identifier:
              name: ObsErrorFactorPressureCheck
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: airTemperature
@@ -178,7 +178,7 @@
 #         - filter: Perform Action
 #           identifier:
 #             name: ObsErrorFactorConventional
-#             logging: true
+#             logging: false
 #             diagnostic flag new: false
 #           filter variables:
 #           - name: airTemperature
@@ -197,7 +197,7 @@
          - filter: Perform Action
            identifier:
              name: ObsErrorFactorQc3
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: airTemperature
@@ -212,7 +212,7 @@
          - filter: Perform Action
            identifier:
              name: ObsErrorFactorHighAltitude
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: airTemperature
@@ -227,7 +227,7 @@
          - filter: Bounds Check
            identifier:
              name: ObsErrorBoundsCheck
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: airTemperature
@@ -242,7 +242,7 @@
          - filter: Bounds Check
            identifier:
              name: ObsValueBoundsCheck
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: airTemperature
@@ -255,7 +255,7 @@
          - filter: Variable Assignment
            identifier:
              name: CreateTempObsErrorData
-             logging: true
+             logging: false
              diagnostic flag new: false
            apply at iterations: 0,1
            assignments:
@@ -272,7 +272,7 @@
          - filter: Perform Action
            identifier:
              name: ObsErrorParmMin
-             logging: true
+             logging: false
              diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
@@ -293,7 +293,7 @@
          - filter: Perform Action
            identifier:
              name: ObsErrorParmMax
-             logging: true
+             logging: false
              diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
@@ -314,7 +314,7 @@
          - filter: Background Check
            identifier:
              name: GrossErrorCheck
-             logging: true
+             logging: false
              diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
@@ -332,7 +332,7 @@
          - filter: Background Check
            identifier:
              name: GrossErrorCheckQc3
-             logging: true
+             logging: false
              diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
@@ -350,7 +350,7 @@
          - filter: Perform Action
            identifier:
              name: ObsErrorCopyBack
-             logging: true
+             logging: false
              diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:

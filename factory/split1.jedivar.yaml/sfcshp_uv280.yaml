@@ -76,7 +76,7 @@
          - filter: RejectList
            identifier:
              name: QcMarkerReject
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: windEastward
@@ -93,7 +93,7 @@
          - filter: Domain Check
            identifier:
              name: TimeWindowCheck
-             logging: true
+             logging: false
              diagnostic flag new: false
            where:
              - variable:
@@ -107,7 +107,7 @@
 #         - filter: Temporal Thinning
 #           identifier:
 #             name: ClosetObs
-#             logging: true
+#             logging: false
 #             diagnostic flag new: false
 #           filter variables:
 #           - name: windEastward
@@ -124,7 +124,7 @@
          - filter: Bounds Check
            identifier:
              name: OnlineRegionalDomainCheck
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: windEastward
@@ -138,7 +138,7 @@
          - filter: Perform Action
            identifier:
              name: ObsErrorInit
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: windEastward
@@ -160,7 +160,7 @@
          - filter: Perform Action
            identifier:
              name: ObsErrorFactorPressureCheckU
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: windEastward
@@ -182,7 +182,7 @@
          - filter: Perform Action
            identifier:
              name: ObsErrorFactorPressureCheckV
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: windNorthward
@@ -204,7 +204,7 @@
 #         - filter: Perform Action
 #           identifier:
 #             name: ObsErrorFactorConventionalU
-#             logging: true
+#             logging: false
 #             diagnostic flag new: false
 #           filter variables:
 #           - name: windEastward
@@ -226,7 +226,7 @@
 #         - filter: Perform Action
 #           identifier:
 #             name: ObsErrorFactorConventionalV
-#             logging: true
+#             logging: false
 #             diagnostic flag new: false
 #           filter variables:
 #           - name: windNorthward
@@ -248,7 +248,7 @@
          - filter: Perform Action
            identifier:
              name: ObsErrorFactorQc3
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: windEastward
@@ -264,7 +264,7 @@
          - filter: Perform Action
            identifier:
              name: ObsErrorFactorHighAltitude
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: windEastward
@@ -280,7 +280,7 @@
          - filter: Bounds Check
            identifier:
              name: ObsErrorBoundsCheck
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: windEastward
@@ -296,7 +296,7 @@
          - filter: Bounds Check
            identifier:
              name: ObsValueBoundsCheck
-             logging: true
+             logging: false
              diagnostic flag new: false
            filter variables:
            - name: windEastward
@@ -310,7 +310,7 @@
          - filter: Background Check
            identifier:
              name: GrossErrorCheckU
-             logging: true
+             logging: false
              diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
@@ -334,7 +334,7 @@
          - filter: Background Check
            identifier:
              name: GrossErrorCheckV
-             logging: true
+             logging: false
              diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
@@ -358,7 +358,7 @@
          - filter: Background Check
            identifier:
              name: GrossErrorCheckQc3U
-             logging: true
+             logging: false
              diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
@@ -382,7 +382,7 @@
          - filter: Background Check
            identifier:
              name: GrossErrorCheckQc3V
-             logging: true
+             logging: false
              diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:

@@ -75,7 +75,7 @@
        - filter: Create Diagnostic Flags
          identifier:
            name: CreateDiagnosticFlags
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -89,7 +89,7 @@
        - filter: Gaussian Thinning
          identifier:
            name: Thinning
-           logging: true
+           logging: false
            diagnostic flag new: false
          #horizontal_mesh: 145
          horizontal_mesh: 60
@@ -105,7 +105,7 @@
        - filter: Bounds Check
          identifier:
            name: OnlineRegionalDomainCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -119,7 +119,7 @@
        - filter: Domain Check
          identifier:
            name: HofXValidCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -136,7 +136,7 @@
        - filter: BlackList
          identifier:
            name: ObsErrorInit
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -170,7 +170,7 @@
        - filter: Bounds Check
          identifier:
            name: CLWRetCheckObs
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -188,7 +188,7 @@
        - filter: Bounds Check
          identifier:
            name: CLWRetCheckBkg
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -206,7 +206,7 @@
        - filter: Bounds Check
          identifier:
            name: HydrometeorCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -253,7 +253,7 @@
        - filter: BlackList
          identifier:
            name: TopographyCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -270,7 +270,7 @@
        - filter: BlackList
          identifier:
            name: TransmitTopCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -287,7 +287,7 @@
        - filter: BlackList
          identifier:
            name: SurfJacobianCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -306,7 +306,7 @@
        - filter: BlackList
          identifier:
            name: SituDependCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -390,7 +390,7 @@
        - filter: Background Check
          identifier:
            name: GrossCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -447,7 +447,7 @@
        - filter: Bounds Check
          identifier:
            name: InterChannelCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
@@ -466,7 +466,7 @@
        - filter: Bounds Check
          identifier:
            name: UseflagCheck
-           logging: true
+           logging: false
            diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
