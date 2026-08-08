@@ -42,10 +42,10 @@
        obs filters:
          # Reject all obs with QualityMarker > 10
          - filter: Bounds Check
-           nametag:
-             filter id: QcMarkerReject
+           identifier:
+             name: QcMarkerReject
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: zenithTotalDelay
            test variables:
@@ -54,10 +54,10 @@
 
          # Initial error assignment
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorInit
+           identifier:
+             name: ObsErrorInit
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: zenithTotalDelay
            action:
@@ -66,19 +66,19 @@
 
          # Terrain Height Discrepancy Check
          - filter: Difference Check
-           nametag:
-             filter id: TerrainHeightCheck
+           identifier:
+             name: TerrainHeightCheck
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            reference: MetaData/stationElevation
            value: GeoVaLs/height_above_mean_sea_level_at_surface
            threshold: 300    # (m)
 
          # Gross Error Check
          - filter: Background Check
-           nametag:
-             filter id: GrossErrorCheck
+           identifier:
+             name: GrossErrorCheck
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            threshold: 6
 

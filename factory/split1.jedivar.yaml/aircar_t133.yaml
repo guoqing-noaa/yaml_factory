@@ -51,10 +51,10 @@
          # ------------------
          # Reject all obs with QualityMarker > 3
          - filter: RejectList
-           nametag:
-             filter id: QcMarkerReject
+           identifier:
+             name: QcMarkerReject
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: airTemperature
            where:
@@ -67,10 +67,10 @@
 
          # Time window filter
          - filter: Domain Check
-           nametag:
-             filter id: TimeWindowCheck
+           identifier:
+             name: TimeWindowCheck
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            where:
              - variable:
                  name: MetaData/timeOffset # units: s
@@ -81,10 +81,10 @@
 
          # Duplicate Check
 #         - filter: Temporal Thinning
-#           nametag:
-#             filter id: ClosetObs
+#           identifier:
+#             name: ClosetObs
 #             logging: true
-#             diagnostic flag: false
+#             diagnostic flag new: false
 #           filter variables:
 #           - name: airTemperature
 #           min_spacing: PT90M
@@ -97,10 +97,10 @@
 
          # Online regional domain check
          - filter: Bounds Check
-           nametag:
-             filter id: OnlineRegionalDomainCheck
+           identifier:
+             name: RegionalDomainCheck
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: airTemperature
            test variables:
@@ -110,10 +110,10 @@
 
          # Initial error assignment
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorInit
+           identifier:
+             name: ObsErrorInit
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: airTemperature
            where:
@@ -131,10 +131,10 @@
 
          # Error inflation based on pressure check (setupt.f90)
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorFactorPressureCheck
+           identifier:
+             name: ObsErrorFactorPressureCheck
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: airTemperature
            where:
@@ -150,10 +150,10 @@
 
 #         # Error inflation based on errormod (qcmod.f90)
 #         - filter: Perform Action
-#           nametag:
-#             filter id: ObsErrorFactorConventional
+#           identifier:
+#             name: ObsErrorFactorConventional
 #             logging: true
-#             diagnostic flag: false
+#             diagnostic flag new: false
 #           filter variables:
 #           - name: airTemperature
 #           where:
@@ -169,10 +169,10 @@
 
          # Error inflation when QualityMarker == 3 (read_prepbufr.f90)
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorFactorQc3
+           identifier:
+             name: ObsErrorFactorQm3_
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: airTemperature
            action:
@@ -184,10 +184,10 @@
 
          # Error inflation when observation pressure < 100 hPa (read_prepbufr.f90)
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorFactorHighAltitude
+           identifier:
+             name: ObsErrorFactorHighAltitude
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: airTemperature
            action:
@@ -199,10 +199,10 @@
 
          # Bounds Check (ObsError)
          - filter: Bounds Check
-           nametag:
-             filter id: ObsErrorBoundsCheck
+           identifier:
+             name: ObsErrorBoundsCheck
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: airTemperature
            test variables:
@@ -214,10 +214,10 @@
 
          # Bounds Check (ObsValue)
          - filter: Bounds Check
-           nametag:
-             filter id: ObsValueBoundsCheck
+           identifier:
+             name: ObsValueBoundsCheck
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: airTemperature
            minvalue: 100
@@ -225,12 +225,12 @@
            action:
              name: reduce obs space
 
-         # Create temporary ObsErrorData
+         # Create TempObsErrorData 
          - filter: Variable Assignment
-           nametag:
-             filter id: CreateTempObsErrorData
+           identifier:
+             name: CreateTempObsErrorData
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            apply at iterations: 0,1
            assignments:
            - name: TempObsErrorData/airTemperature
@@ -244,10 +244,10 @@
 
          # Set ObsError set "error parameter" if < "max value"
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorParmMin
+           identifier:
+             name: ObsErrorMinForGEC
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
            - name: airTemperature
@@ -265,10 +265,10 @@
 
          # Set ObsError set "error parameter" if > "min value"
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorParmMax
+           identifier:
+             name: ObsErrorMaxForGEC
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
            - name: airTemperature
@@ -286,10 +286,10 @@
 
          # Gross Error Check
          - filter: Background Check
-           nametag:
-             filter id: GrossErrorCheck
+           identifier:
+             name: GrossErrorCheck
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
            - name: airTemperature
@@ -304,10 +304,10 @@
 
          # Gross Error Check: cgross*0.7 if QualityMarker=3
          - filter: Background Check
-           nametag:
-             filter id: GrossErrorCheckQc3
+           identifier:
+             name: GrossErrorCheckQm3_
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
            - name: airTemperature
@@ -322,10 +322,10 @@
 
          # Re-assign err ObsErrorData <--- TempObsErrorData after gross error check.
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorCopyBack
+           identifier:
+             name: ObsErrorCopyBack
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
            - name: airTemperature

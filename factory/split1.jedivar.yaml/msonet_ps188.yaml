@@ -44,10 +44,10 @@
          # ------------------
          # Reject all obs with QualityMarker > 3
          - filter: RejectList
-           nametag:
-             filter id: QcMarkerReject
+           identifier:
+             name: QcMarkerReject
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: stationPressure
            where:
@@ -60,10 +60,10 @@
 
          # Time window filter
          - filter: Domain Check
-           nametag:
-             filter id: TimeWindowCheck
+           identifier:
+             name: TimeWindowCheck
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            where:
              - variable:
                  name: MetaData/timeOffset # units: s
@@ -74,10 +74,10 @@
 
          # Duplicate Check
 #         - filter: Temporal Thinning
-#           nametag:
-#             filter id: ClosetObs
+#           identifier:
+#             name: ClosetObs
 #             logging: true
-#             diagnostic flag: false
+#             diagnostic flag new: false
 #           filter variables:
 #           - name: stationPressure
 #           min_spacing: PT90M
@@ -90,10 +90,10 @@
 
          # Online regional domain check
          - filter: Bounds Check
-           nametag:
-             filter id: OnlineRegionalDomainCheck
+           identifier:
+             name: OnlineRegionalDomainCheck
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: stationPressure
            test variables:
@@ -103,10 +103,10 @@
 
          # Initial error assignment
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorInit
+           identifier:
+             name: ObsErrorInit
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: stationPressure
            where:
@@ -124,10 +124,10 @@
 
          # Error inflation based on pressure check (setupps.f90)
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorFactorSfcPressure
+           identifier:
+             name: ObsErrorFactorSfcPressure
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: stationPressure
            where:
@@ -143,10 +143,10 @@
 
 #         # Error inflation based on errormod (qcmod.f90)
 #         - filter: Perform Action
-#           nametag:
-#             filter id: ObsErrorFactorConventional
+#           identifier:
+#             name: ObsErrorFactorConventional
 #             logging: true
-#             diagnostic flag: false
+#             diagnostic flag new: false
 #           filter variables:
 #           - name: stationPressure
 #           where:
@@ -162,10 +162,10 @@
 
          # Error inflation when QualityMarker == 3 (read_prepbufr.f90)
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorFactorQc3
+           identifier:
+             name: ObsErrorFactorQc3
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: stationPressure
            action:
@@ -177,10 +177,10 @@
 
          # Error inflation when observation pressure < 100 hPa (read_prepbufr.f90)
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorFactorHighAltitude
+           identifier:
+             name: ObsErrorFactorHighAltitude
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: stationPressure
            action:
@@ -192,10 +192,10 @@
 
          # Bounds Check (ObsError)
          - filter: Bounds Check
-           nametag:
-             filter id: ObsErrorBoundsCheck
+           identifier:
+             name: ObsErrorBoundsCheck
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: stationPressure
            test variables:
@@ -207,10 +207,10 @@
 
          # Bounds Check (ObsValue)
          - filter: Bounds Check
-           nametag:
-             filter id: ObsValueBoundsCheck
+           identifier:
+             name: ObsValueBoundsCheck
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            filter variables:
            - name: stationPressure
            minvalue: 20000.0
@@ -220,10 +220,10 @@
 
          # Create temporary ObsErrorData
          - filter: Variable Assignment
-           nametag:
-             filter id: CreateTempObsErrorData
+           identifier:
+             name: CreateTempObsErrorData
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            apply at iterations: 0,1
            assignments:
            - name: TempObsErrorData/stationPressure
@@ -237,10 +237,10 @@
 
          # Set ObsError set "error parameter" if < "max value"
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorParmMin
+           identifier:
+             name: ObsErrorParmMin
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
            - name: stationPressure
@@ -258,10 +258,10 @@
 
          # Set ObsError set "error parameter" if > "min value"
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorParmMax
+           identifier:
+             name: ObsErrorParmMax
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
            - name: stationPressure
@@ -279,10 +279,10 @@
 
          # Gross Error Check
          - filter: Background Check
-           nametag:
-             filter id: GrossErrorCheck
+           identifier:
+             name: GrossErrorCheck
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
            - name: stationPressure
@@ -297,10 +297,10 @@
 
          # Gross Error Check: cgross*0.7 if QualityMarker=3
          - filter: Background Check
-           nametag:
-             filter id: GrossErrorCheckQc3
+           identifier:
+             name: GrossErrorCheckQc3
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
            - name: stationPressure
@@ -315,10 +315,10 @@
 
          # Re-assign err ObsErrorData <--- TempObsErrorData after gross error check.
          - filter: Perform Action
-           nametag:
-             filter id: ObsErrorCopyBack
+           identifier:
+             name: ObsErrorCopyBack
              logging: true
-             diagnostic flag: false
+             diagnostic flag new: false
            apply at iterations: 0,1
            filter variables:
            - name: stationPressure

@@ -73,10 +73,10 @@
        obs pre filters:
        # Step 0-A: Create Diagnostic Flags
        - filter: Create Diagnostic Flags
-         nametag:
-           filter id: CreateDiagnosticFlags
+         identifier:
+           name: CreateDiagnosticFlags
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_metop-c_channels
@@ -87,10 +87,10 @@
        obs post filters:
        #Thinning
        - filter: Gaussian Thinning
-         nametag:
-           filter id: Thinning
+         identifier:
+           name: Thinning
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          #horizontal_mesh: 145
          horizontal_mesh: 60
          use_reduced_horizontal_grid: true
@@ -103,10 +103,10 @@
            - name: reject
        # Regional domain check to remove data outside of model domain
        - filter: Bounds Check
-         nametag:
-           filter id: OnlineRegionalDomainCheck
+         identifier:
+           name: OnlineRegionalDomainCheck
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_metop-c_channels
@@ -117,10 +117,10 @@
            maxvalue: 0.5
         #Toss data if the hofx is missing or outside of range
        - filter: Domain Check
-         nametag:
-           filter id: HofXValidCheck
+         identifier:
+           name: HofXValidCheck
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_metop-c_channels
@@ -134,10 +134,10 @@
          action:
            name: reject
        - filter: BlackList
-         nametag:
-           filter id: ObsErrorInit
+         identifier:
+           name: ObsErrorInit
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_metop-c_channels
@@ -168,10 +168,10 @@
                         0.400,  0.550,  0.800,  3.000, 18.000]
        #  CLW Retrieval Check
        - filter: Bounds Check
-         nametag:
-           filter id: CLWRetCheckObs
+         identifier:
+           name: CLWRetCheckObs
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: 1-6, 15
@@ -186,10 +186,10 @@
            name: reject
        #  CLW Retrieval Check
        - filter: Bounds Check
-         nametag:
-           filter id: CLWRetCheckBkg
+         identifier:
+           name: CLWRetCheckBkg
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: 1-6, 15
@@ -204,10 +204,10 @@
            name: reject
        #  Hydrometeor Check (cloud/precipitation affected chanels)
        - filter: Bounds Check
-         nametag:
-           filter id: HydrometeorCheck
+         identifier:
+           name: HydrometeorCheck
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_metop-c_channels
@@ -251,10 +251,10 @@
            name: reject
        #  Topography check
        - filter: BlackList
-         nametag:
-           filter id: TopographyCheck
+         identifier:
+           name: TopographyCheck
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_metop-c_channels
@@ -268,10 +268,10 @@
                channels: *amsua_metop-c_channels
        #  Transmittnace Top Check
        - filter: BlackList
-         nametag:
-           filter id: TransmitTopCheck
+         identifier:
+           name: TransmitTopCheck
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_metop-c_channels
@@ -285,10 +285,10 @@
                channels: *amsua_metop-c_channels
        #  Surface Jacobian check
        - filter: BlackList
-         nametag:
-           filter id: SurfJacobianCheck
+         identifier:
+           name: SurfJacobianCheck
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_metop-c_channels
@@ -304,10 +304,10 @@
                obserr_dtempf: [0.500, 2.000, 1.000, 2.000, 4.500]
        #  Situation dependent Check
        - filter: BlackList
-         nametag:
-           filter id: SituDependCheck
+         identifier:
+           name: SituDependCheck
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_metop-c_channels
@@ -388,10 +388,10 @@
 
        #  Gross check
        - filter: Background Check
-         nametag:
-           filter id: GrossCheck
+         identifier:
+           name: GrossCheck
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_metop-c_channels
@@ -445,10 +445,10 @@
            name: reject
        #  Inter-channel check
        - filter: Bounds Check
-         nametag:
-           filter id: InterChannelCheck
+         identifier:
+           name: InterChannelCheck
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_metop-c_channels
@@ -464,10 +464,10 @@
            name: reject
        #  Useflag check
        - filter: Bounds Check
-         nametag:
-           filter id: UseflagCheck
+         identifier:
+           name: UseflagCheck
            logging: true
-           diagnostic flag: false
+           diagnostic flag new: false
          filter variables:
          - name: brightnessTemperature
            channels: *amsua_metop-c_channels
