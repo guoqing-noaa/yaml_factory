@@ -1,11 +1,18 @@
-         # Online domain check
+         # Time window filter
          - filter: Bounds Check
-           udescriptor: "online_domain_check"
+           udescriptor: "time_window_check"
            filter variables:
            - name: windEastward
            - name: windNorthward
            test variables:
-           - name:  GeoVaLs/observable_domain_mask
-           minvalue: 0.0
-           maxvalue: 0.5
+           - name: MetaData/timeOffset # units: s
+           minvalue: -5400
+           maxvalue:  5400
+           where:
+           - variable: ObsType/windEastward
+             is_in: 247
+           - variable: MetaData/satelliteIdentifier
+             is_in: 270
+           action:
+             name: reduce obs space
 

@@ -1,0 +1,15 @@
+         # Halve the ob error (based on read_satwnd.f90)
+         - filter: Perform Action
+           udescriptor: "ob_error_inflation"
+           filter variables:
+           - name: windEastward
+           - name: windNorthward
+           where:
+           - variable: ObsType/windEastward
+             is_in: 246
+           - variable: MetaData/satelliteIdentifier
+             is_in: 272
+           action:
+             name: inflate error
+             inflation factor: 0.5
+

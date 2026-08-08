@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["MAP"]
+             is_in: ["INTERNET"]
            - variable: MetaData/stationIdentification
-             is_in: ["LHSCA","CCOCA","BBYCA","CCLCA"]
+             is_in: ["NWTC","SRRL","CSUF"]

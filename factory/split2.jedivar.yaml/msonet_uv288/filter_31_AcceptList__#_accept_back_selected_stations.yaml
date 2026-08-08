@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["NJWxNet"]
+             is_in: ["NERRS"]
            - variable: MetaData/stationIdentification
-             is_in: ["KQ11","KQ59","KQ58","KQ43","KQ56","USFS2","USFS1","KQ55","KQ48","KQ49","KQ51","KQ52"]
+             is_in: ["WEXM1","BSLM2","ELXC1","NIWS1","NAXR1","MAXT2","GTXF1","RKXF1","SAXG1","GDXM6","TIXC1"]

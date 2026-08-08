@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["MNDOT"]
+             is_in: ["MAP"]
            - variable: MetaData/stationIdentification
-             is_in: ["MN011","MN035","MN037","MN010","MN095","MN024","MN032","MN091","MN086","MN080","MN015","MN008","MN025","MN014","MN057","MN082","MN029","MN076","MN018","MN044","MN052","MN079","MN045","MN059","MN071","MN021","MN026","MN038","MN043","MN036","MN030","MN075","MN042","MN096","MN022","MN065","MN007","MN084","MN063","MN028","MN033"]
+             is_in: ["LHSCA","CCOCA","BBYCA","CCLCA"]

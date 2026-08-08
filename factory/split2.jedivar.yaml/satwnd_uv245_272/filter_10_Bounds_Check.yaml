@@ -1,13 +1,12 @@
-         # Reject obs with pct1 (Coeff. of Var.) outside of 0.04-0.5
+         # Reject obs with pressure < 150 mb
          - filter: Bounds Check
-           udescriptor: "bounds_check_pct1"
+           udescriptor: "bounds_check_pressure"
            filter variables:
            - name: windEastward
            - name: windNorthward
            test variables:
-           - name: MetaData/coefficientOfVariation
-           minvalue: 0.04
-           maxvalue: 0.5
+           - name: MetaData/pressure
+           minvalue: 15000.
            where:
            - variable: ObsType/windEastward
              is_in: 245

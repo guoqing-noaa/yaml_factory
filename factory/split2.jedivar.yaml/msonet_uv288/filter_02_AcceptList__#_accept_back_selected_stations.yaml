@@ -1,6 +1,0 @@
-         - filter: AcceptList  # accept back selected stations
-           where:
-           - variable: MetaData/dataProviderOrigin
-             is_in: ["AFA"]
-           - variable: MetaData/stationIdentification
-             is_in: ["AFA12","AFA09","AFA01","AFA11","AFA06","AFA03","AFA02","AFA04"]

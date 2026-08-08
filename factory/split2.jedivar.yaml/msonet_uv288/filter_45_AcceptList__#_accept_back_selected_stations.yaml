@@ -1,0 +1,7 @@
+         - filter: AcceptList  # accept back selected stations
+           where:
+           - variable: MetaData/dataProviderOrigin
+             is_in: ["WYDOT"]
+           - variable: MetaData/stationIdentification
+             is_in: ["KBIT","KBRX","KHLD","KBFU","KCMS","KPER","KDRC"]
+

@@ -43,6 +43,28 @@
          # ------------------
          # wind (246)
          # ------------------
+         # Reject all obs not in variable type
+         - filter: Perform Action
+           where:
+           - variable: ObsValue/windEastward
+             value: is_not_valid
+           - variable: ObsValue/windNorthward
+             value: is_not_valid
+           where operator: or
+           action:
+             name: reduce obs space
+
+         # Reject all obs not in bufr type
+         - filter: Perform Action
+           where:
+           - variable: ObsType/windEastward
+             is_not_in: 246
+           - variable: ObsType/windNorthward
+             is_not_in: 246
+           where operator: or
+           action:
+             name: reduce obs space
+
          # Time window filter
          - filter: Bounds Check
            identifier:

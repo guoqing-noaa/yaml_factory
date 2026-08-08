@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["CODOT"]
+             is_in: ["AWX"]
            - variable: MetaData/stationIdentification
-             is_in: ["CO102","CO006","CO001","CO103","CO096","CO104","CO066","CO020","CO071","CO095","CO089","CO008","CO084","CO067","CO097","CO065","CO099","CO073","CO072"]
+             is_in: ["AW314","AW281","AW381","AW233","AW345","AW213"]

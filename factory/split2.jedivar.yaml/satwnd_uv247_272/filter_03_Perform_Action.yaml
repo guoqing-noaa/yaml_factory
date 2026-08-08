@@ -1,0 +1,14 @@
+         # Reject all obs not 247
+         - filter: Perform Action
+           udescriptor: "obs_type_check"
+           filter variables:
+           - name: windEastward
+           - name: windNorthward
+           where:
+           - variable: ObsType/windEastward
+             is_not_in: 247
+           - variable: MetaData/satelliteIdentifier
+             is_not_in: 272
+           action:
+             name: reduce obs space
+

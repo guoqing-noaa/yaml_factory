@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["KSDOT"]
+             is_in: ["INDOT"]
            - variable: MetaData/stationIdentification
-             is_in: ["K1EGN","K5KSM","K5EUR","K5EHT","K5KIO","K5ED7","K5OK7","K5LEA","K5WKY","K5WSU","K5NES","K5SLN","K5PEA","K5BCR","K5FRD"]
+             is_in: ["IN001","IN009","IN014","IN008","IN004","IN002","IN016","IN018","IN005","IN013","IN011","IN015"]

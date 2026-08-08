@@ -1,15 +1,16 @@
-         # Halve the ob error (based on read_satwnd.f90)
+         # Low wind speed check
          - filter: Perform Action
-           udescriptor: "ob_error_inflation"
+           udescriptor: "reject_low_speed_amv"
            filter variables:
            - name: windEastward
            - name: windNorthward
            where:
+           - variable: ObsFunction/Velocity
+             maxvalue: 0.1
            - variable: ObsType/windEastward
              is_in: 245
            - variable: MetaData/satelliteIdentifier
              is_in: 270
            action:
-             name: inflate error
-             inflation factor: 0.5
+             name: reject
 

@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["AWX"]
+             is_in: ["ARLFRD"]
            - variable: MetaData/stationIdentification
-             is_in: ["AW314","AW281","AW381","AW233","AW345","AW213"]
+             is_in: ["TER","LOF","IDA","RIC"]

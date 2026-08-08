@@ -1,17 +1,14 @@
          # ------------------
          # wind (247)
          # ------------------
-         # Accept, reject, or passivate (monitor)
+         # Reject all obs not in variable type
          - filter: Perform Action
-           udescriptor: "iuse_check"
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
            where:
-           - variable: ObsType/windEastward
-             is_in: 247
-           - variable: MetaData/satelliteIdentifier
-             is_in: 272
+           - variable: ObsValue/windEastward
+             value: is_not_valid
+           - variable: ObsValue/windNorthward
+             value: is_not_valid
+           where operator: or
            action:
-             name: accept # accept, reject, passivate
+             name: reduce obs space
 

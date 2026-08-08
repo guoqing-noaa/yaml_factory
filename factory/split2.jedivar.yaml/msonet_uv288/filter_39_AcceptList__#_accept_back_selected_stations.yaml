@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["VADOT"]
+             is_in: ["UDFCD"]
            - variable: MetaData/stationIdentification
-             is_in: ["VA006","VA013","VA017","VA029","VA016","VA041","VA022","VA019","VA003","VA011","VA031","VA026","VA004","VA023","VA015","VA021","VA032","VA027","VA040"]
+             is_in: ["SAPC2","EBBC2"]

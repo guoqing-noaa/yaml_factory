@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["NHDOT"]
+             is_in: ["NEDOR"]
            - variable: MetaData/stationIdentification
-             is_in: ["NHLRV","NHSFD"]
+             is_in: ["NE029","NE011","NE039","NE000","NE059","NE017","NE006","NE056","NE037","NE026","NE049","NE058","NE008","NE016","NE005","NE057","NE015","NE027","NE042","NE045","NE054","NE014","NE041","NE009","NE047","NE050","NE030","NE028"]

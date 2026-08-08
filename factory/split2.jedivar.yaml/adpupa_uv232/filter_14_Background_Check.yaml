@@ -1,4 +1,4 @@
-         # Gross Error Check (windEastward): cgross*0.7 if QualityMarker=3
+         # Gross Error Check (windEastward)
          - filter: Background Check
            apply at iterations: 0,1
            filter variables:
@@ -7,13 +7,13 @@
            - name: ObsFunction/WindsSPDBCheck
              options:
                wndtype:    [ 232 ]
-               cgross:     [ 4.9 ]
+               cgross:     [ 7.0 ]
                error_min:  [ 1.4 ]
                error_max:  [ 6.1 ]
                variable: windEastward
            where:
            - variable: QualityMarker/windEastward
-             is_in: 3
+             is_not_in: 3
            action:
              name: reject
            defer to post: true

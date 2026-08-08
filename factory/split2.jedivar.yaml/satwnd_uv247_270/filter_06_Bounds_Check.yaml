@@ -1,0 +1,11 @@
+         # Online domain check
+         - filter: Bounds Check
+           udescriptor: "online_domain_check"
+           filter variables:
+           - name: windEastward
+           - name: windNorthward
+           test variables:
+           - name:  GeoVaLs/observable_domain_mask
+           minvalue: 0.0
+           maxvalue: 0.5
+

@@ -1,0 +1,13 @@
+         # ------------------
+         # wind (287)
+         # ------------------
+         - filter: Perform Action
+           where:
+           - variable: ObsValue/windEastward
+             value: is_not_valid
+           - variable: ObsValue/windNorthward
+             value: is_not_valid
+           where operator: or
+           action:
+             name: reduce obs space
+

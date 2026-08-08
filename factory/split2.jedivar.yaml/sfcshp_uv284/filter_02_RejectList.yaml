@@ -1,0 +1,13 @@
+         # Reject all obs with QualityMarker > 3
+         - filter: RejectList
+           filter variables:
+           - name: windEastward
+           - name: windNorthward
+           where:
+           - variable: QualityMarker/windEastward
+             is_in: 4-15
+             value: is_not_valid
+           where operator: or
+           action:
+             name: reduce obs space
+

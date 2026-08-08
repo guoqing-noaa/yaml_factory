@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["UDFCD"]
+             is_in: ["SAO"]
            - variable: MetaData/stationIdentification
-             is_in: ["SAPC2","EBBC2"]
+             is_in: ["WLV","WSF","WUY","WQQ","WGN","WWN","WWP","WUT","WSU","WNC","WMI"]

@@ -1,0 +1,22 @@
+         # Gross Error Check (windNorthward): cgross*0.7 if QualityMarker=3
+         - filter: Background Check
+           apply at iterations: 0,1
+           filter variables:
+           - name: windNorthward
+           function absolute threshold:
+           - name: ObsFunction/WindsSPDBCheck
+             options:
+               wndtype:    [ 230 ]
+               cgross:     [ 4.2 ]
+               error_min:  [ 1.4 ]
+               error_max:  [ 6.1 ]
+               variable: windNorthward
+           where:
+           - variable: QualityMarker/windNorthward
+             is_in: 3
+           action:
+             name: reject
+           defer to post: true
+
+         #- filter: GOMsaver
+         #  filename: ./data/geovals/aircft_geovals_rrfs.nc

@@ -1,0 +1,37 @@
+         # Time window filter
+         - filter: Bounds Check
+           udescriptor: "time_window_check"
+           filter variables:
+           - name: windEastward
+           - name: windNorthward
+           test variables:
+           - name: MetaData/timeOffset
+           minvalue: -5400
+           maxvalue: 5400
+           where:
+           - variable: ObsType/windEastward
+             is_in: 245
+           - variable: MetaData/satelliteIdentifier
+             is_in: 272
+           action:
+             name: reduce obs space
+
+         # Duplicate Check
+#         - filter: Temporal Thinning
+#           udescriptor: "duplicate_check"
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@ANALYSIS_DATE@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           where:
+#           - variable: ObsType/windEastward
+#             is_in: 245
+#           - variable: MetaData/satelliteIdentifier
+#             is_in: 272
+#           action:
+#             name: reduce obs space
+
