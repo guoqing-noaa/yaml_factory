@@ -59,7 +59,7 @@
            action:
              name: reduce obs space
 
-         # Reject all obs with QualityMarker > 3
+         # Remove all obs with QualityMarker > 3
          - filter: RejectList
            identifier:
              name: QcMarkerReject

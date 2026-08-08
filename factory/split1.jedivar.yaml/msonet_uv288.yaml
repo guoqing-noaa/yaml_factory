@@ -510,7 +510,7 @@
            - variable: MetaData/stationIdentification
              is_in: ["KBIT","KBRX","KHLD","KBFU","KCMS","KPER","KDRC"]
 
-         # Reject all obs with QualityMarker > 3
+         # Remove all obs with QualityMarker > 3
          - filter: RejectList
            identifier:
              name: QcMarkerReject
