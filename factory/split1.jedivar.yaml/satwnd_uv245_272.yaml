@@ -43,6 +43,12 @@
          # ------------------
          # wind (245)
          # ------------------
+         # Reset the QCflags at the beginning of a new outer loop
+         - filter: AcceptList
+           apply at iterations: 1
+           identifier:
+             name: NewLoopReset
+
          # Remove all invalid obs from this observer
          - filter: Perform Action
            where:

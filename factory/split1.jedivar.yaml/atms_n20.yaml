@@ -85,6 +85,12 @@
 
        obs pre filters:
        # Step 0-A: Create Diagnostic Flags
+       # Reset the QCflags at the beginning of a new outer loop
+       - filter: AcceptList
+         apply at iterations: 1
+         identifier:
+           name: NewLoopReset
+
        - filter: Create Diagnostic Flags
          identifier:
            name: CreateDiagnosticFlags

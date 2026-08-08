@@ -51,6 +51,12 @@
          # ------------------
          # wind (284)
          # ------------------
+         # Reset the QCflags at the beginning of a new outer loop
+         - filter: AcceptList
+           apply at iterations: 1
+           identifier:
+             name: NewLoopReset
+
          - filter: Perform Action
            where:
            - variable: ObsValue/windEastward

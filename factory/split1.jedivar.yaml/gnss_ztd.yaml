@@ -41,6 +41,12 @@
 
        obs filters:
          # Reject all obs with QualityMarker > 10
+         # Reset the QCflags at the beginning of a new outer loop
+         - filter: AcceptList
+           apply at iterations: 1
+           identifier:
+             name: NewLoopReset
+
          - filter: Bounds Check
            identifier:
              name: QcMarkerReject

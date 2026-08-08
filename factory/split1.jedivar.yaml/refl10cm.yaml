@@ -29,6 +29,12 @@
            lengthscale: 200e3 # orig
        _obsname: refl10cm
        obs filters:
+       # Reset the QCflags at the beginning of a new outer loop
+       - filter: AcceptList
+         apply at iterations: 1
+         identifier:
+           name: NewLoopReset
+
        - filter: Background Check
          identifier:
            name: GrossErrorCheck
