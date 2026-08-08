@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["GoMOOS"]
+             is_in: ["GADOT"]
            - variable: MetaData/stationIdentification
-             is_in: ["44037","44029","44034","44024","44030","44035","D0201","44031","44032","44038"]
+             is_in: ["GA109","GA113","GA114","GA104","GA103"]

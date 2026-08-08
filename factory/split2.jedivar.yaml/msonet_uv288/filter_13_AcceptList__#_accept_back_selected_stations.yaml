@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["GLDNWS"]
+             is_in: ["DCNet"]
            - variable: MetaData/stationIdentification
-             is_in: ["KCO0","KSYF"]
+             is_in: ["DC008","DC001","DC010","DC009","DC003","DC006"]

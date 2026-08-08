@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["COOP"]
+             is_in: ["CAIC"]
            - variable: MetaData/stationIdentification
-             is_in: ["PATM1","DANM1","RGLM1","ISPV1"]
+             is_in: ["CAEGE"]

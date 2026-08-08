@@ -1,14 +1,14 @@
-         # AMV expected error norm check
+         # Reject data over non-water surface type where latitude > 20N
          - filter: Perform Action
-           udescriptor: "amv_experr_norm_check"
+           udescriptor: "bounds_check_reject_over_nonwater"
            filter variables:
            - name: windEastward
            - name: windNorthward
            where:
-           - variable: ObsFunction/Velocity
-             minvalue: 0.1
-           - variable: MetaData/exp_err_norm
-             minvalue: 0.9
+           - variable: MetaData/latitude
+             minvalue: 20.
+           - variable: GeoVaLs/water_area_fraction
+             maxvalue: 0.99
            - variable: ObsType/windEastward
              is_in: 245
            - variable: MetaData/satelliteIdentifier

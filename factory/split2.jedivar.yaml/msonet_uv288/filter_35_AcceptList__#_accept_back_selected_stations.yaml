@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["SAO"]
+             is_in: ["OHDOT"]
            - variable: MetaData/stationIdentification
-             is_in: ["WLV","WSF","WUY","WQQ","WGN","WWN","WWP","WUT","WSU","WNC","WMI"]
+             is_in: ["OH105","OH039","OH160","OH165","OH055","OH064","OH062","OH101","OH154","OH027","OH044","OH040","OH164","OH115","OH124","OH036","OH090","OH014","OH162","OH106","OH126","OH050","OH011","OH076","OH096","OH163","OH158","OH060","OH148","OH107","OH116","OH135","OH109","OH140","OH147","OH117","OH097","OH150","OH034","OH023","OH159","OH032","OH142","OH111","OH083","OH030","OH166"]

@@ -1,14 +1,14 @@
-         # Reject data over non-water surface type where latitude > 20N
+         # Reject obs over land (isli=1) where pressure > 850 mb
          - filter: Perform Action
-           udescriptor: "bounds_check_reject_over_nonwater"
+           udescriptor: "bounds_check_pressure_over_land"
            filter variables:
            - name: windEastward
            - name: windNorthward
            where:
-           - variable: MetaData/latitude
-             minvalue: 20.
-           - variable: GeoVaLs/water_area_fraction
-             maxvalue: 0.99
+           - variable: MetaData/pressure
+             minvalue: 85000.
+           - variable: GeoVaLs/land_area_fraction
+             minvalue: 0.99
            - variable: ObsType/windEastward
              is_in: 245
            - variable: MetaData/satelliteIdentifier

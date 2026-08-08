@@ -1,17 +1,16 @@
-         # Reject obs with satellite zenith angle > 68
+         # Bounds Check (ObsValue)
          - filter: Bounds Check
-           udescriptor: "bounds_check_satellite_zenith_angle"
+           udescriptor: "bounds_check_ObsValue"
            filter variables:
            - name: windEastward
            - name: windNorthward
-           test variables:
-           - name: MetaData/satelliteZenithAngle
-           maxvalue: 68.
+           minvalue: -130
+           maxvalue: 130
            where:
            - variable: ObsType/windEastward
              is_in: 246
            - variable: MetaData/satelliteIdentifier
              is_in: 272
            action:
-             name: reject
+             name: reduce obs space
 

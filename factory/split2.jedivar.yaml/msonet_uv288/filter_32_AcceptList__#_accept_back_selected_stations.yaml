@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["NonFedAWOS"]
+             is_in: ["NHDOT"]
            - variable: MetaData/stationIdentification
-             is_in: ["KFPK","KS34","KMPR","KMYJ","K9S2","KHAE","KMAW","K78T","K2Q3","K6S8","KPYN","KN23","KUUV","KBTN","KTYQ","K1B1","K1D1","KCZG","KOIC","KHWQ","KTRK","KFSK","K97M","KSIK","KO70","KMBY","KX26","KEVU","KM75","KLRY"]
+             is_in: ["NHLRV","NHSFD"]

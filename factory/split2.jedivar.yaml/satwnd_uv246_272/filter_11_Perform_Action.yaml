@@ -1,12 +1,14 @@
-         # Low wind speed check
+         # Reject obs over land (isli=1) where pressure > 850 mb
          - filter: Perform Action
-           udescriptor: "reject_low_speed_amv"
+           udescriptor: "bounds_check_pressure_over_land"
            filter variables:
            - name: windEastward
            - name: windNorthward
            where:
-           - variable: ObsFunction/Velocity
-             maxvalue: 0.1
+           - variable: MetaData/pressure
+             minvalue: 85000.
+           - variable: GeoVaLs/land_area_fraction
+             minvalue: 0.99
            - variable: ObsType/windEastward
              is_in: 246
            - variable: MetaData/satelliteIdentifier

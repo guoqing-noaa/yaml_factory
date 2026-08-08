@@ -1,6 +1,6 @@
          - filter: AcceptList  # accept back selected stations
            where:
            - variable: MetaData/dataProviderOrigin
-             is_in: ["HADS"]
+             is_in: ["GLDNWS"]
            - variable: MetaData/stationIdentification
-             is_in: ["MRVA1","OBII2","OLCN6","SXHW3","BSBM4","SLVM5","CLSM4","JAKA1","LOKI2","PNGW3","WHRI2","SRDI2","OTNM4","RPRN6"]
+             is_in: ["KCO0","KSYF"]

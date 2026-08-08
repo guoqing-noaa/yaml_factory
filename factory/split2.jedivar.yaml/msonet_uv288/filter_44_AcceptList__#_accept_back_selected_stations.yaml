@@ -1,0 +1,6 @@
+         - filter: AcceptList  # accept back selected stations
+           where:
+           - variable: MetaData/dataProviderOrigin
+             is_in: ["WXforYou"]
+           - variable: MetaData/stationIdentification
+             is_in: ["H0269","H0313","H0300","H0080","H0346","H0164","H0005","H0177","H0041","H0498","H0338","H0062","H0244","H0203","H0237","H0030","H0322","H0560","H0140","H0447"]
