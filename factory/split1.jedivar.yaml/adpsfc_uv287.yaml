@@ -56,6 +56,10 @@
            identifier:
              name: NewLoopReset
 
+         # Remove all obs outside the regional domain polygon
+         - filter: Polygon Check
+           <<: *polygonConfig
+
          - filter: Perform Action
            where:
            - variable: ObsValue/windEastward

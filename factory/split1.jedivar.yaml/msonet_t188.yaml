@@ -65,6 +65,10 @@
            identifier:
              name: NewLoopReset
 
+         # Remove all obs outside the regional domain polygon
+         - filter: Polygon Check
+           <<: *polygonConfig
+
          # Remove all invalid obs from this observer
          - filter: Perform Action
            where:

@@ -97,6 +97,10 @@
          identifier:
            name: NewLoopReset
 
+       # Remove all obs outside the regional domain polygon
+       - filter: Polygon Check
+         <<: *polygonConfig
+
        - filter: Create Diagnostic Flags
          identifier:
            name: CreateDiagnosticFlags
