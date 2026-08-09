@@ -57,10 +57,16 @@
 
          # Remove all obs outside the regional domain polygon
          - filter: Polygon Check
+           identifier:
+             name: PolygonCheck
+             logging: false
            <<: *polygonConfig
 
          # Remove all invalid obs from this observer
          - filter: Perform Action
+           identifier:
+             name: ObsInvalidCheck
+             logging: false
            where:
            - variable: ObsValue/airTemperature
              value: is_not_valid
@@ -69,6 +75,9 @@
 
          # Remove obs of other obsTypes
          - filter: Perform Action
+           identifier:
+             name: ObsTypeCheck
+             logging: false
            where:
            - variable: ObsType/airTemperature
              is_not_in: 133
@@ -78,7 +87,7 @@
          # Remove all obs with QualityMarker > 3
          - filter: RejectList
            identifier:
-             name: QcMarkerReject
+             name: QcMarkerCheck
              logging: false
              diagnostic flag new: false
            filter variables:
@@ -96,7 +105,6 @@
            identifier:
              name: TimeWindowCheck
              logging: false
-             diagnostic flag new: false
            where:
              - variable:
                  name: MetaData/timeOffset # units: s
@@ -106,11 +114,6 @@
              name: reduce obs space
 
          # Duplicate Check
-#         - filter: Temporal Thinning
-#           identifier:
-#             name: ClosetObs
-#             logging: false
-#             diagnostic flag new: false
 #           filter variables:
 #           - name: airTemperature
 #           min_spacing: PT90M
@@ -236,7 +239,7 @@
            minvalue: 0.0
            maxvalue: 1000
            action:
-             name: reduce obs space
+             name: reject
 
          # Bounds Check (ObsValue)
          - filter: Bounds Check
@@ -249,15 +252,14 @@
            minvalue: 100
            maxvalue: 400
            action:
-             name: reduce obs space
+             name: reject
 
          # Create TempObsErrorData 
          - filter: Variable Assignment
-           identifier:
-             name: CreateTempObsErrorData
-             logging: false
-             diagnostic flag new: false
            apply at iterations: 0,1
+           identifier:
+             name: TempObsErrorData
+             logging: false
            assignments:
            - name: TempObsErrorData/airTemperature
              type: float
@@ -270,11 +272,11 @@
 
          # Set ObsError set "error parameter" if < "max value"
          - filter: Perform Action
+           apply at iterations: 0,1
            identifier:
              name: ObsErrorMinForGEC
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            filter variables:
            - name: airTemperature
            action:
@@ -291,11 +293,11 @@
 
          # Set ObsError set "error parameter" if > "min value"
          - filter: Perform Action
+           apply at iterations: 0,1
            identifier:
              name: ObsErrorMaxForGEC
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            filter variables:
            - name: airTemperature
            action:
@@ -312,11 +314,11 @@
 
          # Gross Error Check
          - filter: Background Check
+           apply at iterations: 0,1
            identifier:
              name: GrossErrorCheck
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            filter variables:
            - name: airTemperature
            threshold: 7.0
@@ -330,11 +332,11 @@
 
          # Gross Error Check: cgross*0.7 if QualityMarker=3
          - filter: Background Check
+           apply at iterations: 0,1
            identifier:
              name: GrossErrorCheckQm3_
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            filter variables:
            - name: airTemperature
            threshold: 4.9
