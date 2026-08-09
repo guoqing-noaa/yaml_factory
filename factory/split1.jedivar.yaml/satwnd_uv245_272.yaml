@@ -58,6 +58,9 @@
 
          # Remove all invalid obs from this observer
          - filter: Perform Action
+           identifier:
+             name: ObsInvalidCheck
+             logging: false
            where:
            - variable: ObsValue/windEastward
              value: is_not_valid
@@ -69,6 +72,9 @@
 
          # Remove obs of other obsTypes
          - filter: Perform Action
+           identifier:
+             name: ObsTypeCheck
+             logging: false
            where:
            - variable: ObsType/windEastward
              is_not_in: 245
@@ -83,7 +89,6 @@
            identifier:
              name: TimeWindowCheck
              logging: false
-             diagnostic flag new: false
            udescriptor: "time_window_check"
            filter variables:
            - name: windEastward
@@ -225,7 +230,7 @@
            - variable: MetaData/satelliteIdentifier
              is_in: 272
            action:
-             name: reduce obs space
+             name: reject
 
          # Reject obs with qiWithoutForecast < 90. OR > 100.
          - filter: Bounds Check

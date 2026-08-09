@@ -74,6 +74,9 @@
 
          # Remove all invalid obs from this observer
          - filter: Perform Action
+           identifier:
+             name: ObsInvalidCheck
+             logging: false
            where:
            - variable: ObsValue/airTemperature
              value: is_not_valid
@@ -82,6 +85,9 @@
 
          # Remove obs of other obsTypes
          - filter: Perform Action
+           identifier:
+             name: ObsTypeCheck
+             logging: false
            where:
            - variable: ObsType/airTemperature
              is_not_in: 188
@@ -91,7 +97,7 @@
          # Remove all obs with QualityMarker > 3
          - filter: RejectList
            identifier:
-             name: QcMarkerReject
+             name: QcMarkerCheck
              logging: false
              diagnostic flag new: false
            filter variables:
@@ -109,7 +115,6 @@
            identifier:
              name: TimeWindowCheck
              logging: false
-             diagnostic flag new: false
            where:
              - variable:
                  name: MetaData/timeOffset # units: s
@@ -249,7 +254,7 @@
            minvalue: 0.0
            maxvalue: 1000
            action:
-             name: reduce obs space
+             name: reject
 
          # Bounds Check (ObsValue)
          - filter: Bounds Check
@@ -262,15 +267,15 @@
            minvalue: 100
            maxvalue: 400
            action:
-             name: reduce obs space
+             name: reject
 
          # Create temporary ObsErrorData
          - filter: Variable Assignment
+           apply at iterations: 0,1
            identifier:
-             name: CreateTempObsErrorData
+             name: TempObsErrorData
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            assignments:
            - name: TempObsErrorData/airTemperature
              type: float
@@ -283,11 +288,11 @@
 
          # Set ObsError set "error parameter" if < "max value"
          - filter: Perform Action
+           apply at iterations: 0,1
            identifier:
              name: ObsErrorParmMin
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            filter variables:
            - name: airTemperature
            action:
@@ -304,11 +309,11 @@
 
          # Set ObsError set "error parameter" if > "min value"
          - filter: Perform Action
+           apply at iterations: 0,1
            identifier:
              name: ObsErrorParmMax
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            filter variables:
            - name: airTemperature
            action:
@@ -325,11 +330,11 @@
 
          # Gross Error Check
          - filter: Background Check
+           apply at iterations: 0,1
            identifier:
              name: GrossErrorCheck
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            filter variables:
            - name: airTemperature
            threshold: 1.1
@@ -343,11 +348,11 @@
 
          # Gross Error Check: cgross*0.7 if QualityMarker=3
          - filter: Background Check
+           apply at iterations: 0,1
            identifier:
              name: GrossErrorCheckQc3
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            filter variables:
            - name: airTemperature
            threshold: 0.77
@@ -361,11 +366,11 @@
 
          # Re-assign err ObsErrorData <--- TempObsErrorData after gross error check.
          - filter: Perform Action
+           apply at iterations: 0,1
            identifier:
              name: ObsErrorCopyBack
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            filter variables:
            - name: airTemperature
            action:

@@ -65,6 +65,9 @@
 
          # Remove all invalid obs from this observer
          - filter: Perform Action
+           identifier:
+             name: ObsInvalidCheck
+             logging: false
            where:
            - variable: ObsValue/windEastward
              value: is_not_valid
@@ -76,6 +79,9 @@
 
          # Remove obs of other obsTypes
          - filter: Perform Action
+           identifier:
+             name: ObsTypeCheck
+             logging: false
            where:
            - variable: ObsType/windEastward
              is_not_in: 231
@@ -88,7 +94,7 @@
          # Remove all obs with QualityMarker > 3
          - filter: RejectList
            identifier:
-             name: QcMarkerReject
+             name: QcMarkerCheck
              logging: false
              diagnostic flag new: false
            filter variables:
@@ -107,7 +113,6 @@
            identifier:
              name: TimeWindowCheck
              logging: false
-             diagnostic flag new: false
            where:
              - variable:
                  name: MetaData/timeOffset # units: s
@@ -297,7 +302,7 @@
            minvalue: 0.0
            maxvalue: 1000
            action:
-             name: reduce obs space
+             name: reject
 
          # Bounds Check (ObsValue)
          - filter: Bounds Check
@@ -311,15 +316,15 @@
            minvalue: -200
            maxvalue: 200
            action:
-             name: reduce obs space
+             name: reject
 
          # Gross Error Check (windEastward)
          - filter: Background Check
+           apply at iterations: 0,1
            identifier:
              name: GrossErrorCheckU
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            filter variables:
            - name: windEastward
            function absolute threshold:
@@ -339,11 +344,11 @@
 
          # Gross Error Check (windNorthward)
          - filter: Background Check
+           apply at iterations: 0,1
            identifier:
              name: GrossErrorCheckV
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            filter variables:
            - name: windNorthward
            function absolute threshold:
@@ -363,11 +368,11 @@
 
          # Gross Error Check (windEastward): cgross*0.7 if QualityMarker=3
          - filter: Background Check
+           apply at iterations: 0,1
            identifier:
              name: GrossErrorCheckQc3U
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            filter variables:
            - name: windEastward
            function absolute threshold:
@@ -387,11 +392,11 @@
 
          # Gross Error Check (windNorthward): cgross*0.7 if QualityMarker=3
          - filter: Background Check
+           apply at iterations: 0,1
            identifier:
              name: GrossErrorCheckQc3V
              logging: false
              diagnostic flag new: false
-           apply at iterations: 0,1
            filter variables:
            - name: windNorthward
            function absolute threshold:

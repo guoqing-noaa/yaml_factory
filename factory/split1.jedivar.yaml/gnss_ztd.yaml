@@ -56,7 +56,7 @@
 
          - filter: Bounds Check
            identifier:
-             name: QcMarkerReject
+             name: QcMarkerCheck
              logging: false
              diagnostic flag new: false
            filter variables:
