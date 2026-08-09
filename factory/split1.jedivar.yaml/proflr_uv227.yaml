@@ -302,7 +302,7 @@
          # Assign abs(windEastward)
          - filter: Variable Assignment
            identifier:
-             name: VarAssign
+             name: AbsoluteU
              logging: false
              diagnostic flag new: false
            assignments:
@@ -318,7 +318,7 @@
          # Assign abs(windNorthward)
          - filter: Variable Assignment
            identifier:
-             name: VarAssign
+             name: AbsoluteV
              logging: false
              diagnostic flag new: false
            assignments:
@@ -358,7 +358,7 @@
          - filter: Bounds Check
            apply at iterations: 0,1
            identifier:
-             name: PressureMinCheck
+             name: HighAltitudeCheck
              logging: false
              diagnostic flag new: false
            filter variables:
