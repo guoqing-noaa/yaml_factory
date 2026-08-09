@@ -209,7 +209,7 @@
          # Error inflation when QualityMarker == 3 (read_prepbufr.f90)
          - filter: Perform Action
            identifier:
-             name: ObsErrorFactorQc3
+             name: ObsErrorFactorQm3_
              logging: false
              diagnostic flag new: false
            filter variables:
