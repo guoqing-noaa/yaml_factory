@@ -144,7 +144,7 @@
          - name: SurfaceTempJacobianCheck
            initial value: false
            force reinitialization: false
-         - name: GrossCheck
+         - name: GrossErrorCheck
            initial value: false
            force reinitialization: false
          - name: NearSSTRetCheckIR
@@ -173,7 +173,6 @@
            flag: ZenithAngleCheck
          #- name: reject
          - name: reduce obs space
-
 
        # ---------------------------------------------------------------------------------------------------------------------------
        # Step 2 : Initial cloud fraction check: remove observations when cloud fraction (from channel 8 or others) is more than 30%
@@ -399,7 +398,6 @@
                    minvalue: 0.99
                  value: 15
 
-
        # ----------------------------------------
        # Observation post Filters (steps 10-20)
        # ----------------------------------------
@@ -409,7 +407,7 @@
        # ----------------------------------------------------------------------------------------
        - filter: Bounds Check
          identifier:
-           name: OnlineRegionalDomainCheck
+           name: RegionalDomainCheck
            logging: false
            diagnostic flag new: false
          filter variables:
@@ -524,7 +522,6 @@
              name: GeoVaLs/surface_snow_area_fraction
            maxvalue: 0.99
            max_exclusive: true
-
 
        # -----------------------------------------------------------------------------------------------------------------------------------------------
        # Step 13: Observation Error inflation: Model top Transmittance Check
@@ -812,7 +809,7 @@
        # ----------------------------------
        - filter: Background Check
          identifier:
-           name: GrossCheck
+           name: GrossErrorCheck
            logging: false
            diagnostic flag new: false
          filter variables:

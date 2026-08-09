@@ -124,7 +124,7 @@
          - name: SurfaceTempJacobianCheck
            initial value: false
            force reinitialization: false
-         - name: GrossCheck
+         - name: GrossErrorCheck
            initial value: false
            force reinitialization: false
          - name: NearSSTRetCheckIR
@@ -366,7 +366,7 @@
        # ----------------------------------------------------------------------------------------
        - filter: Bounds Check
          identifier:
-           name: OnlineRegionalDomainCheck
+           name: RegionalDomainCheck
            logging: false
            diagnostic flag new: false
          filter variables:
@@ -584,7 +584,7 @@
        # -------------------------------------------------------------------------------------------------------------------------------------------
        - filter: Background Check
          identifier:
-           name: GrossCheck
+           name: GrossErrorCheck
            logging: false
            diagnostic flag new: false
          filter variables:

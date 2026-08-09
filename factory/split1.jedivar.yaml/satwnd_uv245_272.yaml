@@ -89,7 +89,6 @@
            identifier:
              name: TimeWindowCheck
              logging: false
-           udescriptor: "time_window_check"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -107,11 +106,6 @@
 
          # Duplicate Check
 #         - filter: Temporal Thinning
-#           identifier:
-#             name: ClosetObs
-#             logging: false
-#             diagnostic flag new: false
-#           udescriptor: "duplicate_check"
 #           filter variables:
 #           - name: windEastward
 #           - name: windNorthward
@@ -131,10 +125,9 @@
          # Online domain check
          - filter: Bounds Check
            identifier:
-             name: OnlineRegionalDomainCheck
+             name: RegionalDomainCheck
              logging: false
              diagnostic flag new: false
-           udescriptor: "online_domain_check"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -149,7 +142,6 @@
              name: ObsErrorInit
              logging: false
              diagnostic flag new: false
-           udescriptor: "initial_error_assignment"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -174,7 +166,6 @@
              name: ObsErrorFactorPressureCheckU
              logging: false
              diagnostic flag new: false
-           udescriptor: "error_inflation_pressure_check"
            filter variables:
            - name: windEastward
            where:
@@ -196,7 +187,6 @@
              name: ObsErrorFactorPressureCheckV
              logging: false
              diagnostic flag new: false
-           udescriptor: "error_inflation_pressure_check"
            filter variables:
            - name: windNorthward
            where:
@@ -218,7 +208,6 @@
              name: ObsValueBoundsCheck
              logging: false
              diagnostic flag new: false
-           udescriptor: "bounds_check_ObsValue"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -238,7 +227,6 @@
              name: QIFNCheck
              logging: false
              diagnostic flag new: false
-           udescriptor: "bounds_check_qifn"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -260,7 +248,6 @@
              name: SatZenithAngleCheck
              logging: false
              diagnostic flag new: false
-           udescriptor: "bounds_check_satellite_zenith_angle"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -281,7 +268,6 @@
              name: PressureMinCheck
              logging: false
              diagnostic flag new: false
-           udescriptor: "bounds_check_pressure"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -302,7 +288,6 @@
              name: PressureOverLandCheck
              logging: false
              diagnostic flag new: false
-           udescriptor: "bounds_check_pressure_over_land"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -324,7 +309,6 @@
              name: CoeffVarCheck
              logging: false
              diagnostic flag new: false
-           udescriptor: "bounds_check_pct1"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -346,7 +330,6 @@
              name: RejectOverNonWater
              logging: false
              diagnostic flag new: false
-           udescriptor: "bounds_check_reject_over_nonwater"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -368,7 +351,6 @@
              name: LowWindSpeedCheck
              logging: false
              diagnostic flag new: false
-           udescriptor: "reject_low_speed_amv"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -388,7 +370,6 @@
              name: AMVExpErrNormCheck
              logging: false
              diagnostic flag new: false
-           udescriptor: "amv_experr_norm_check"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -410,7 +391,6 @@
              name: ObsErrorHalve
              logging: false
              diagnostic flag new: false
-           udescriptor: "ob_error_inflation"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -429,7 +409,6 @@
              name: TropopausePressureCheck
              logging: false
              diagnostic flag new: false
-           udescriptor: "difference_check_tropopause_pressure"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -450,7 +429,6 @@
              name: SurfacePressureCheck
              logging: false
              diagnostic flag new: false
-           udescriptor: "difference_check_air_pressure_at_surface"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -471,7 +449,6 @@
              name: PressureRangeCheck
              logging: false
              diagnostic flag new: false
-           udescriptor: "pressure_range_check"
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -492,7 +469,6 @@
              name: GrossErrorCheckU
              logging: false
              diagnostic flag new: false
-           udescriptor: "gross_error_check"
            apply at iterations: 0,1
            filter variables:
            - name: windEastward
@@ -514,7 +490,6 @@
              name: GrossErrorCheckV
              logging: false
              diagnostic flag new: false
-           udescriptor: "gross_error_check"
            apply at iterations: 0,1
            filter variables:
            - name: windNorthward

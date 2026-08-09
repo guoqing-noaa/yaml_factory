@@ -123,7 +123,7 @@
          - name: HydrometeorCheck
            initial value: false
            force reinitialization: false
-         - name: GrossCheck
+         - name: GrossErrorCheck
            initial value: false
            force reinitialization: false
          - name: InterChannelConsistency
@@ -326,7 +326,7 @@
        # Regional Domain Check
        - filter: Bounds Check
          identifier:
-           name: OnlineRegionalDomainCheck
+           name: RegionalDomainCheck
            logging: false
            diagnostic flag new: false
          filter variables:
@@ -624,7 +624,7 @@
        # Remove data if abs(Obs-HofX) > absolute threhold
        - filter: Variable Assignment
          identifier:
-           name: GrossCheck
+           name: GrossErrorCheck
            logging: false
            diagnostic flag new: false
          assignments:

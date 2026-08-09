@@ -117,7 +117,7 @@
        # Regional domain check to remove data outside of model domain
        - filter: Bounds Check
          identifier:
-           name: OnlineRegionalDomainCheck
+           name: RegionalDomainCheck
            logging: false
            diagnostic flag new: false
          filter variables:
@@ -402,7 +402,7 @@
        #  Gross check
        - filter: Background Check
          identifier:
-           name: GrossCheck
+           name: GrossErrorCheck
            logging: false
            diagnostic flag new: false
          filter variables:

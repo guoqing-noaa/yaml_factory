@@ -118,7 +118,6 @@
            identifier:
              name: ClosetObs
              logging: false
-             diagnostic flag new: false
            filter variables:
            - name: airTemperature
            min_spacing: PT90M
@@ -132,7 +131,7 @@
          # Online regional domain check
          - filter: Bounds Check
            identifier:
-             name: OnlineRegionalDomainCheck
+             name: RegionalDomainCheck
              logging: false
              diagnostic flag new: false
            filter variables:
@@ -284,7 +283,7 @@
          - filter: Perform Action
            apply at iterations: 0,1
            identifier:
-             name: ObsErrorParmMin
+             name: ObsErrorMinForGEC
              logging: false
              diagnostic flag new: false
            filter variables:
@@ -305,7 +304,7 @@
          - filter: Perform Action
            apply at iterations: 0,1
            identifier:
-             name: ObsErrorParmMax
+             name: ObsErrorMaxForGEC
              logging: false
              diagnostic flag new: false
            filter variables:
@@ -344,7 +343,7 @@
          - filter: Background Check
            apply at iterations: 0,1
            identifier:
-             name: GrossErrorCheckQc3
+             name: GrossErrorCheckQm3_
              logging: false
              diagnostic flag new: false
            filter variables:

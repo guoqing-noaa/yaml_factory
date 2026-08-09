@@ -122,7 +122,6 @@
            identifier:
              name: ClosetObs
              logging: false
-             diagnostic flag new: false
            filter variables:
            - name: windEastward
            - name: windNorthward
@@ -137,7 +136,7 @@
          # Online domain check
          - filter: Bounds Check
            identifier:
-             name: OnlineRegionalDomainCheck
+             name: RegionalDomainCheck
              logging: false
              diagnostic flag new: false
            filter variables:
@@ -372,7 +371,7 @@
          - filter: Background Check
            apply at iterations: 0,1
            identifier:
-             name: GrossErrorCheckQc3U
+             name: GrossErrorCheckQm3U
              logging: false
              diagnostic flag new: false
            filter variables:
@@ -396,7 +395,7 @@
          - filter: Background Check
            apply at iterations: 0,1
            identifier:
-             name: GrossErrorCheckQc3V
+             name: GrossErrorCheckQm3V
              logging: false
              diagnostic flag new: false
            filter variables:
